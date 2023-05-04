@@ -130,9 +130,9 @@ namespace utilizacion_componentes
             {
                 WebBrowser1.GoHome();
             }
-            catch (Exception ex)
+            catch 
             {
-                Console.WriteLine("ERROR : " + ex);
+                Console.WriteLine("ERROR : " );
             }
         }
 

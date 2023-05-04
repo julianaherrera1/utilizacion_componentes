@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace utilizacion_componentes
 {
+    /// <summary>
+    /// Codigo formulario de reproductor de video
+    /// </summary>
     public partial class frm_Reproductor : Form
     {
         private string ruta = "";
@@ -64,17 +67,41 @@ namespace utilizacion_componentes
         // buscar video 
         private void btn_Cargar_Click(object sender, EventArgs e)
         {
-            if(openFileDialog1.ShowDialog() == DialogResult.OK)
+            try
             {
-                ruta = openFileDialog1.FileName;     
-                lbl_Ruta.Text = ruta;
-            } 
+                if (openFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    ruta = openFileDialog1.FileName;
+                    lbl_Ruta.Text = ruta;
+                }
+            }
+            catch
+            {
+                MessageBox.Show(" ERROR : No ha escogido nigun archivo ");
+            }
+             
         }
         // reproducir el video
         private void btn_Reproducir_Click(object sender, EventArgs e)
         {
-            axWindowsMediaPlayer1.URL = ruta; //Indicar donde esta el video 
-            axWindowsMediaPlayer1.Ctlcontrols.play();
+            // ruta es donde se guarda el video
+            if (ruta == "")
+            {
+                errorProvider1.SetError(btn_Reproducir, " Debe cargar un archivo ");
+                btn_Reproducir.Focus();
+                return;
+            }
+            errorProvider1.SetError(btn_Reproducir, "");
+            try
+            {
+                axWindowsMediaPlayer1.URL = ruta; //Indicar donde esta el video 
+                axWindowsMediaPlayer1.Ctlcontrols.play();
+            }
+            catch
+            {
+                MessageBox.Show("ERROR : Tipo de archivo no valido ");
+            }
+            
         }
 
         private void btn_Parar_Click(object sender, EventArgs e)

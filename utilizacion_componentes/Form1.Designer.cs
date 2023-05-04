@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Reproductor));
             this.btn_Cargar = new System.Windows.Forms.Button();
             this.btn_Reproducir = new System.Windows.Forms.Button();
@@ -40,9 +41,11 @@
             this.img_maximizar = new System.Windows.Forms.PictureBox();
             this.btn_Minimizar = new System.Windows.Forms.Button();
             this.btn_Cerrar = new System.Windows.Forms.Button();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.img_maximizar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_Cargar
@@ -177,6 +180,10 @@
             this.btn_Cerrar.UseVisualStyleBackColor = false;
             this.btn_Cerrar.Click += new System.EventHandler(this.btn_Cerrar_Click);
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // frm_Reproductor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -197,6 +204,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.img_maximizar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -215,6 +223,7 @@
         private System.Windows.Forms.Button btn_Cerrar;
         private System.Windows.Forms.Button btn_Minimizar;
         private System.Windows.Forms.PictureBox img_maximizar;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
 
