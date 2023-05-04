@@ -11,6 +11,9 @@ namespace utilizacion_componentes
 {
     public partial class frm_NavegadorWeb : Form
     {
+        /// <summary>
+        /// Codigo de formulario de navegador web 
+        /// </summary>
         
         public frm_NavegadorWeb()
         {
@@ -63,22 +66,22 @@ namespace utilizacion_componentes
             {
                 WebBrowser1.GoBack();
             }
-            catch (Exception ex)
+            catch 
             {
-                Console.WriteLine("ERROR : " +ex.Message);
+                MessageBox.Show(" ERROR : No hay pagina para retroceder");
             }
         }
 
         private void btn_Siguiente_Click(object sender, EventArgs e)
         {
-            // ir a la pagian siguiente
+            // ir a la pagina siguiente
             try
             {
                 WebBrowser1.GoForward();
             }
-            catch (Exception ex)
+            catch 
             {
-                Console.WriteLine("ERROR : " + ex);
+                MessageBox.Show(" ERROR : No hay pagina siguiente");
             }
             
         }
@@ -90,9 +93,9 @@ namespace utilizacion_componentes
             {
                 WebBrowser1.Refresh();
             }
-            catch (Exception ex)
+            catch
             {
-                Console.WriteLine("ERROR : " + ex);
+                MessageBox.Show(" ERROR : No hay pagina para refrescar ");
             }
             
         }
@@ -117,9 +120,9 @@ namespace utilizacion_componentes
             {
                 WebBrowser1.Navigate(txt_Url.Text);
             }
-            catch (Exception ex)
+            catch when(txt_Url.Text == "")
             {
-                Console.WriteLine("ERROR : " + ex);
+                MessageBox.Show(" ERROR: No ha ingresado ninguna página ");
             }
             
         }
@@ -130,9 +133,9 @@ namespace utilizacion_componentes
             {
                 WebBrowser1.GoHome();
             }
-            catch 
+            catch (Exception ex)
             {
-                Console.WriteLine("ERROR : " );
+                MessageBox.Show("ERROR :  " + ex );
             }
         }
 
