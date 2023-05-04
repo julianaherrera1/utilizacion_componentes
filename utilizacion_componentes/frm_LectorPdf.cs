@@ -12,6 +12,9 @@ namespace utilizacion_componentes
 {
     public partial class frm_LectorPdf : Form
     {
+        /// <summary>
+        /// Codigo formulario del lector PDF
+        /// </summary>
         public frm_LectorPdf()
         {
             InitializeComponent();
@@ -60,15 +63,27 @@ namespace utilizacion_componentes
 
         private void btn_CargarPdf_Click(object sender, EventArgs e)
         {
-            OpenFileDialog fd = new OpenFileDialog();
-            if(fd.ShowDialog() == DialogResult.OK)
+            try
             {
-                axAcroPDF1.src = fd.FileName;
+                OpenFileDialog fd = new OpenFileDialog();
+                if (fd.ShowDialog() == DialogResult.OK)
+                {
+                    axAcroPDF1.src = fd.FileName;
+                }
+                else
+                {
+                    MessageBox.Show(" Seleccione el archivo ");
+                }
             }
-            else
+            catch when (axAcroPDF1.Text == "")
             {
-                MessageBox.Show(" Seleccione el archivo ");
+                MessageBox.Show(" ERROR: No se ha seleccionado ningun archivo ");
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(" ERROR: " + ex);
+            }
+           
         }
        
     }
